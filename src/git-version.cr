@@ -101,7 +101,7 @@ module GitVersion
     def get_previous_tag_and_version: Tuple(String | Nil, SemanticVersion)
       cb = current_branch_or_tag
 
-      branch_tags = tags_by_branch(cb)
+      branch_tags = exec "git tag"
 
       previous_version = BASE_VERSION
       previous_tag = nil
